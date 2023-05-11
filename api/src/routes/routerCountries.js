@@ -15,18 +15,15 @@ routerCountries.get('/countries', async (req, res)=>{
     }
 })
 
-routerCountries.get('/countries/:idPais', async(req, res)=>{
+routerCountries.get('/countries/:id', async(req, res)=>{
  // ESTA RUTA OBTIENE LOS DETALLES DE UN OBJETO POR SU ID 
  const {id} = req.params;
  try {
     const country = await getCountryById(id)
-    
     res.status(201).json(country)
-    
  } catch (error) {
     res.status(400).json({error: error.message})
  }
-  res.send('ESTA RUTA OBTIENE LOS DETALLES DE UN OBJETO POR SU ID')
 })
 
 
