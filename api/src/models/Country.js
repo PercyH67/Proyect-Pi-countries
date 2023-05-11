@@ -5,33 +5,39 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Country', {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.STRING,
       primaryKey: true,
     },
 
-    name: {
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+
+    imagen: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    image: {
+    continente: {
       type: DataTypes.STRING,
-    },
-    continent: {
-      type: DataTypes.STRING,
+      allowNull: false,
     },
     capital: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, 
+      allowNull: false,
     },
     subRegion: {
       type: DataTypes.STRING,
     },
     area: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      
     },
-    population: {
-      type: DataTypes.STRING
+    poblacion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   });
 };

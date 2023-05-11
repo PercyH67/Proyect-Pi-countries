@@ -5,20 +5,27 @@ module.exports = (sequelize) =>{
     sequelize.define("Activity", {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            autoIncrement: true,
+            primaryKey: true,
 
         },
-        name: {
+        nombre: {
             type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
         },
-        difficulty: {
-            type: DataTypes.INTEGER
+        dificultad: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
-        duration: {
-            type: DataTypes.TIME
+        duracion: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
-        season: {
-            type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera')
+        temporada: {
+            type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
+            allowNull: false,
+            
         }
     })
 }
