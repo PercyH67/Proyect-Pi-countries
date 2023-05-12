@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize")
 
-
+// DEFINIMOS EL MODELO PARA ACTIVIDADES
 module.exports = (sequelize) =>{
     sequelize.define("Activity", {
         id: {
@@ -19,7 +19,7 @@ module.exports = (sequelize) =>{
             allowNull: false,
         },
         duracion: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TIME,
             allowNull: false,
         },
         temporada: {
