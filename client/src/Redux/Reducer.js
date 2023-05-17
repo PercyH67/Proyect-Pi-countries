@@ -1,10 +1,10 @@
-import { GET_COUNTRIES, GET_COUNTRY } from "./Actions"
+import { GET_COUNTRIES, GET_COUNTRY, GET_COUNTRY_NAME } from "./Actions"
 
 
 
 const initialState = {
     Countries: [],
-    Country: []
+    Country: [],
 };
 
 
@@ -15,6 +15,9 @@ const rootReducer = (state = initialState, action) =>{
 
         case GET_COUNTRY:
             return {...state, Country: action.payload}
+
+        case GET_COUNTRY_NAME:
+            return {...state, Countries: action.payload}
         default:
             return { ...state };
     }

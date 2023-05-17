@@ -18,9 +18,17 @@ const Home = ()=>{
 
     return(
         <div>
-            <h1>Este es mi home</h1>
+            <div style={{display:"flex"}}>
+                <div>
+                    <p><b>Filtrar</b></p>
+                    <input type="text" />
+                </div>
+                <div>
+                    <p><b>Ordenar</b></p>
+                    <input type="text" />
+                </div>
+            </div>
             <Cards />
-
         </div>
     )
 }

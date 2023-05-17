@@ -30,9 +30,6 @@ const Detail = ()=>{
                   <p><b>Sub Region: </b> {country.subRegion}</p>
                </div>
             </div>
-            <Link className={styles.breck} to='/home'>
-               <button>Go Back</button>
-            </Link>
         </div>
     )
 }

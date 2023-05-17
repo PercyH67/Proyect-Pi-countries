@@ -9,7 +9,7 @@ const Landing = ()=>{
             <h1> Bienvenidos a mi proyecto</h1>
             <h3>ciudades para todos</h3>
             <button>
-                <Link to="/home"> Ingresar </Link>
+                <Link to="/home"> Acceso </Link>
             </button>
         </div>
     )
