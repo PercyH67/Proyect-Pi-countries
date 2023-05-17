@@ -1,0 +1,12 @@
+.content{
+    background-image: url("../../assets/continentes.jpg");
+    height: 680px;
+    background-size: 100vh, 100wh;
+    width: 100%;
+
+
+}
+
+h1{
+    margin-top: 0;
+}

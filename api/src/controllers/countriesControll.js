@@ -26,6 +26,7 @@ const getAllData = async() =>{
                 attributes: ["nombre", "dificultad", "duracion", "temporada"],
                 through: { attributes: [] }
             }
+        
         ]
         
     })

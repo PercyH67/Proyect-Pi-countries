@@ -15,7 +15,7 @@ module.exports = (sequelize) =>{
             unique: true,
         },
         dificultad: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM("1", "2", "3", "4", "5"),
             allowNull: false,
         },
         duracion: {
@@ -27,5 +27,5 @@ module.exports = (sequelize) =>{
             allowNull: false,
             
         }
-    })
+    }, {timestamps: false})
 }
