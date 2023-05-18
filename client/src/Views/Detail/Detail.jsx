@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCountry } from "../../Redux/Actions";
-import { Link } from "react-router-dom";
 import styles from "./Detail.module.css"
 
 

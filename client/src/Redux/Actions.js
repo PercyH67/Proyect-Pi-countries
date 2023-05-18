@@ -26,7 +26,6 @@ export const getCountryName = (nombre) =>{
     return async function (dispatch){
         const apiData = await axios.get(`http://localhost:3001/auth/country/?nombre=${nombre}`)
         const countryName = apiData.data;
-        console.log(countryName);
         dispatch({type: GET_COUNTRY_NAME, payload: countryName})
     }
 }

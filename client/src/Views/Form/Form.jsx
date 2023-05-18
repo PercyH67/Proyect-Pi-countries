@@ -1,22 +1,27 @@
 import { useState } from "react";
 import styles from "./Form.module.css"
-import { Link } from "react-router-dom";
 import validate from "./validate";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Form = ()=>{
+
+ const select = useSelector(state => state.Countries)
+ 
 
  const [Form, setForm] = useState({
     nombre: "",
     dificultad: 0,
     duracion: "",
-    temporada: ""
+    temporada: "",
+    countries: ""
  })
  const [Errors, setErrors] = useState({
     nombre: "",
     dificultad: 0,
     duracion: "",
-    temporada: ""
+    temporada: "",
+    countries: ""
  })
 
  const handleChange = (event) =>{
@@ -24,7 +29,7 @@ const Form = ()=>{
 
     setForm({
         ...Form,
-         [name]: value
+         [name]: value,
         })
 
     setErrors(
@@ -34,6 +39,7 @@ const Form = ()=>{
         }))
     )
  }
+
 
  const handleSubmit = (event) =>{
     event.preventDefault()
@@ -76,15 +82,16 @@ const Form = ()=>{
                     <p className={styles.error}>
                             {Errors.temporada ? Errors.temporada : null}
                         </p>
-                  <select name="" id="">
-                    <option value=""></option>
-                  </select>
+                    <select style={{width: "150px"}} onChange={handleChange} name="countries" value={Form.countries}  >
+                        {select.map(option =>{
+                           return <option key={option.id}  value={option.id} >{option.nombre}</option>
+                        })}
+                    </select>
                     
 
                     <button>Crear</button>
                 </div>
             </form>
-            <button><Link to="/home">Volver al home</Link></button>
         </div>
     )
 }
