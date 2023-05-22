@@ -1,11 +1,48 @@
 .cardContainer{
-    border: solid 3px blueviolet;
+    border: solid 3px rgba(243, 191, 60, 0.232);
+    background-color: rgba(109, 70, 12, 0.597);
     border-radius: 5px;
     width: 200px;
     height: 250px;
     padding: 10px;
     margin: 20px;
+    scale: 0.9;
 }
 .cardContainer img{
     width: 150px;
+    height: 110px;
+}
+.cardContainer div{
+    text-align: center;
+}
+
+.cardContainer b{
+    color: rgb(255, 233, 233);
+    
+}
+.cardContainer p{
+    color: rgb(200, 255, 255);
+    
+}
+.boton{
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+}
+.boton a{
+    text-decoration: none;
+}
+.cardContainer button{
+    width: 100px;
+    height: 20px;
+    color: chartreuse;
+    font-weight: 600;
+    background-color: rgba(240, 248, 255, 0.508);
+    border-radius: 3px;
+    border: navajowhite;
+    margin-bottom: 5px;
+}
+.cardContainer button:hover{
+    cursor: pointer;
+    scale: 1.1;
 }

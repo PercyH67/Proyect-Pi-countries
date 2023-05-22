@@ -6,11 +6,15 @@ import styles from "./Landing.module.css"
 const Landing = ()=>{
     return(
         <div className={styles.content}>
-            <h1> Bienvenidos a mi proyecto</h1>
-            <h3>ciudades para todos</h3>
-            <button>
-                <Link to="/home"> Acceso </Link>
-            </button>
+            <div className={styles.title}>
+                <h1> Bienvenidos a mi proyecto</h1>
+                <h3>ciudades para todos</h3>
+            </div>
+            <div className={styles.ingresar}> 
+                <button>
+                    <Link to="/home"> Acceso </Link>
+                </button>
+            </div>
         </div>
     )
 }

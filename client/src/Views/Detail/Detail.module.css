@@ -1,0 +1,39 @@
+.detail{
+    background-color: rgb(181, 180, 180);
+    height: 600px;
+    padding: 20px 0 0 10px;
+}
+.container{
+    width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgba(249, 231, 231, 0.478);
+    height: 550px;
+}
+.container div{
+    text-align: center;
+    background-image: url("../../assets/detail.jpg");
+    background-size: cover;
+    padding: 10px;
+    
+    border-radius: 10px 10px 0 0;
+}
+.container div img{
+
+    width: 300px;
+}
+.container h2{
+    text-align: center;
+    color: red;
+    margin-bottom: 0;
+}
+
+.container p{
+    padding: 0 50px;
+    font-size: medium;
+    color: blue;
+}
+.container b{
+    padding: 0 20px;
+    color: black;
+}

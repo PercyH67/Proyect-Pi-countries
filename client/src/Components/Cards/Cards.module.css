@@ -1,9 +1,7 @@
+
 .containerCards{
-    background-color: rgb(154, 183, 183);
-    border: solid 2px green;
-    border-radius: 5px;
+    border-top: solid 2px rgb(26, 0, 128);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
 }

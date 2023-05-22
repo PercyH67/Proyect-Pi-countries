@@ -1,16 +1,75 @@
 .form{
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 40px;
-    text-decoration: none;
-    width: 300px;
-    height: 500px;
+   background-image: url("../../assets/country.jpg");
+   background-size: cover;
+   
+}
+ .form form{
+    padding: 50px;
+    text-align: center;
 }
 .inputs{
     font-size: 20px;
+    background-color: #276ba7b8;
+    padding: 1px 40px 20px;
+    text-decoration: none;
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    border-radius: 10px;
+    
 }
-.inputs input{
+.inputs h2{
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 40px;
+    margin-top: 0;
+    padding-top: 10px;
+}
+.inputs div{
+    margin: 0 20px;
+    padding: 0;
+}
+.error{
+    margin:15px 20px;
+    color: rgb(151, 9, 9);
+}
+
+.inputs div label{
+    margin: 0 30px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+.inputs div input{
+    width: 400px;
+    height: 30px;
     border: none;
-    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: rgba(240, 248, 255, 0.736);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+.opciones{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(240, 248, 255, 0.736);
+}
+
+.inputs button{
+    width: 100px;
+    padding: 10px 20px;
+    margin: 0 0 0 300px;
+    border-radius: 5px;
+    border: none;
+    color: rgb(25, 24, 26);
+    background-color: rgba(0, 182, 88, 0.736);
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.inputs button:hover{
+    scale: 1.1;
     cursor: pointer;
 }

@@ -1,5 +1,14 @@
-.App {
+
+footer{
+  background-color: rgb(146, 194, 236);
+  font-size: 15px;
+  justify-content: center;
   text-align: center;
+  padding-bottom: 12px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  font-style: italic;
 }
 
 .App-logo {

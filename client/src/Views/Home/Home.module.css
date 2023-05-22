@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    padding-left: 20px;
+    margin: 20px;
+    color: aliceblue;
+    padding: 0 10px;
+}
+
+.container select{
+    background-color: rgba(0, 255, 255, 0.516);
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+    height: 25px;
+}

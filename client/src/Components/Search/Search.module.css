@@ -1,0 +1,13 @@
+
+.container input{
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+	padding:3px 10px;
+	border:1px solid #000000;
+	border-radius:3px;
+    background-color: rgba(243, 235, 235, 0.248);
+	margin:8px 0;
+	display:inline-block;
+}

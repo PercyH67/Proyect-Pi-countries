@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const Form = ()=>{
 
- const select = useSelector(state => state.Countries)
+ const {Countries} = useSelector(state => state)
  
 
  const [Form, setForm] = useState({
@@ -31,7 +31,7 @@ const Form = ()=>{
         ...Form,
          [name]: value,
         })
-
+    
     setErrors(
         validate(({
             ...Form,
@@ -40,58 +40,69 @@ const Form = ()=>{
     )
  }
 
-
  const handleSubmit = (event) =>{
+
     event.preventDefault()
+    
+    alert('Actividad creada exitosamente');
+
     axios.post("http://localhost:3001/auth/activities", Form)
+    setForm({
+        nombre:'',
+        dificultad: 0,
+        duracion: "",
+        temporada: "",
+        countries: ""
+
+    })
  }
+  
     return(
-        <div>
-            <h1> Esto es mi form</h1>
-            <form action="" onSubmit={handleSubmit} className={styles.form}>
-                <h2>Crear actividad turistica</h2>
+        <div className={styles.form}>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.inputs}>
+                <h2>Crear actividad turistica</h2>
                     <div>
-                        <label htmlFor="">Nombre: </label>
-                        <input type="text" value={Form.nombre} onChange={handleChange} name="nombre"/>
+                        <label >Nombre: </label>
+                        <input type="text" value={Form.nombre} onChange={handleChange} name="nombre" required/>
                         <p className={styles.error}>
                             {Errors.nombre ? Errors.nombre : null}
                         </p>
                     </div>
                     <div>
-                        <label htmlFor="">Dificultad: </label>
-                        <input type="Number" value={Form.dificultad} onChange={handleChange} name="dificultad"/>    
+                        <label >Dificultad: </label>
+                        <input type="Number" value={Form.dificultad} onChange={handleChange} name="dificultad" required/>    
                     </div>
                     <p className={styles.error}>
                             {Errors.dificultad ? Errors.dificultad : null}
                         </p>
                     <div>
-                        <label htmlFor="">Duracion: </label>
-                        <input type="text" value={Form.duracion} onChange={handleChange} name="duracion"/>    
+                        <label >Duracion: </label>
+                        <input type="time" value={Form.duracion} onChange={handleChange} name="duracion" required/>    
                     </div>
                     <p className={styles.error}>
                             {Errors.duracion ? Errors.duracion : null}
                         </p>
                     
                     <section name="temporada" value={Form.temporada}>
-                        <input type="radio" name="temporada" value="Primavera" onChange={handleChange} /> Primavera
-                        <input type="radio" name="temporada" value="Otoño" onChange={handleChange}/> Otoño
-                        <input type="radio" name="temporada" value="Invierno" onChange={handleChange} /> Invierno
-                        <input type="radio" name="temporada" value="Verano" onChange={handleChange} /> Verano
+                        <input type="radio" name="temporada" value="Primavera" onChange={handleChange} required/> Primavera
+                        <input type="radio" name="temporada" value="Otoño" onChange={handleChange} required/> Otoño
+                        <input type="radio" name="temporada" value="Invierno" onChange={handleChange} required /> Invierno
+                        <input type="radio" name="temporada" value="Verano" onChange={handleChange} required/> Verano
                     </section>
                     <p className={styles.error}>
                             {Errors.temporada ? Errors.temporada : null}
                         </p>
-                    <select style={{width: "150px"}} onChange={handleChange} name="countries" value={Form.countries}  >
-                        {select.map(option =>{
+                    <select className={styles.opciones} onChange={handleChange} name="countries" value={Form.countries}  >
+                        {Countries.map(option =>{
                            return <option key={option.id}  value={option.id} >{option.nombre}</option>
                         })}
-                    </select>
-                    
+                    </select>  
 
-                    <button>Crear</button>
+                    <button >Crear</button>
                 </div>
             </form>
+            
         </div>
     )
 }
