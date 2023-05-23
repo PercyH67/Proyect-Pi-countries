@@ -1,9 +1,10 @@
 .container{
     display: flex;
     padding-left: 20px;
-    margin: 20px;
     color: aliceblue;
-    padding: 0 10px;
+    padding: 10px;
+    background-color: rgba(128, 166, 226, 0.741);
+    border-top: 2px solid rgb(0, 0, 0);
 }
 
 .container select{

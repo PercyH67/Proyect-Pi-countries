@@ -6,7 +6,10 @@ import { useSelector } from "react-redux";
 
 const Form = ()=>{
 
- const {Countries} = useSelector(state => state)
+ const { Countries } = useSelector(state => state)
+
+ 
+ 
  
 
  const [Form, setForm] = useState({
@@ -43,17 +46,22 @@ const Form = ()=>{
  const handleSubmit = (event) =>{
 
     event.preventDefault()
-    
-    alert('Actividad creada exitosamente');
 
     axios.post("http://localhost:3001/auth/activities", Form)
+    .catch(Errors =>{
+        if (Errors.response.status === 404) {
+            alert("La actividad con ese nombre ya existe")
+        }
+        else {alert('Actividad creada exitosamente')}
+    })
+    
+    
     setForm({
         nombre:'',
         dificultad: 0,
         duracion: "",
         temporada: "",
         countries: ""
-
     })
  }
   
@@ -98,9 +106,9 @@ const Form = ()=>{
                            return <option key={option.id}  value={option.id} >{option.nombre}</option>
                         })}
                     </select>  
-
                     <button >Crear</button>
                 </div>
+                <p></p>
             </form>
             
         </div>
