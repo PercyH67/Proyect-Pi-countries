@@ -11,10 +11,10 @@ export const ORDER_COUNTRIES = "ORDER_COUNTRIES";
 export const ORDER_POBLATION = "ORDER_POBLATION";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const FILTER_ACTIVITY = "FILTER_ACTIVITY";
-export const RESET = "RESET";
 
 export const getCountries = () =>{
-    return async function (dispatch){
+  
+        return async function (dispatch){
         const apiData  = await axios.get("http://localhost:3001/auth/countries")
         const countries = apiData.data
         dispatch({type: GET_COUNTRIES, payload: countries})
@@ -22,16 +22,17 @@ export const getCountries = () =>{
 }
 
 export const getCountry = (id) =>{
-    return async function (dispatch){
+ 
+        return async function (dispatch){
         const apiData = await axios.get(`http://localhost:3001/auth/countries/${id}`)
         const country = apiData.data;
         dispatch({type: GET_COUNTRY, payload: country})
-    }
-    
+    } 
 }
 
 export const getCountryName = (nombre) =>{
-    return async function (dispatch){
+    
+        return async function (dispatch){
         const apiData = await axios.get(`http://localhost:3001/auth/country/?nombre=${nombre}`)
         const countryName = apiData.data;
         dispatch({type: GET_COUNTRY_NAME, payload: countryName})
@@ -98,8 +99,4 @@ export const filterActivity = (nombre) =>{
     }
 }
 
-export const reset = () =>{
-    return {
-        type: RESET
-    }
-}
+

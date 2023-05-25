@@ -4,7 +4,6 @@ import styles from "./Card.module.css"
 
 const Card = ({ id, imagen, nombre, continente }) =>{
 
-
     return(
         <div className={styles.cardContainer}>
             <div>

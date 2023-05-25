@@ -6,7 +6,7 @@ import Paginate from "../Paginate/Paginate"
 
 const Cards = () =>{
 
-const { Countries, numPaginate, filterContent, Activity} = useSelector(state => state)
+const { Countries, numPaginate, filterContent, Activity } = useSelector(state => state)
 
 
 let desde = (numPaginate - 1) * 10;
@@ -28,6 +28,7 @@ let viewCountries = Activity.length?  Activity : (filterContent.length === 0 ? C
                         imagen= {country.imagen}
                         nombre = {country.nombre}
                         continente = {country.continente}
+                        activities = {country.Activities}
                     />
                 })}
             </div>

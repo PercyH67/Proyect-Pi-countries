@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_COUNTRY, GET_COUNTRY_NAME, PREV_PAGINATE, NEX_PAGINATE, HANDLE_NUMBER, FILTER_CONTINENT, ORDER_COUNTRIES, ORDER_POBLATION, GET_ACTIVITIES, FILTER_ACTIVITY, RESET} from "./Actions"
+import { GET_COUNTRIES, GET_COUNTRY, GET_COUNTRY_NAME, PREV_PAGINATE, NEX_PAGINATE, HANDLE_NUMBER, FILTER_CONTINENT, ORDER_COUNTRIES, ORDER_POBLATION, GET_ACTIVITIES, FILTER_ACTIVITY } from "./Actions"
 
 
 
@@ -17,6 +17,7 @@ const rootReducer = (state = initialState, action) =>{
         case GET_COUNTRIES:
             return {
                 ...state, 
+                filterContent: action.payload,
                 Countries: action.payload
             }
 
@@ -29,7 +30,7 @@ const rootReducer = (state = initialState, action) =>{
         case GET_COUNTRY_NAME:
             return {
                 ...state, 
-                Countries: action.payload
+                filterContent: action.payload
             }
         case GET_ACTIVITIES:
             return {
@@ -39,7 +40,7 @@ const rootReducer = (state = initialState, action) =>{
         case FILTER_ACTIVITY:
             let activity = state.Activities.filter((nombre) => nombre.nombre === action.payload)
             let filtroActivity = activity.map(ele => ele.Countries[0])
-                        
+            
             return {
                 ...state,
                 Activity: filtroActivity
@@ -63,34 +64,32 @@ const rootReducer = (state = initialState, action) =>{
 
             case FILTER_CONTINENT:
                 let newFilter = state.Countries.filter((element) => element.continente === action.payload)
-            
+                
                 return {
                     ...state, 
+                    numPaginate: 1,
                     filterContent: newFilter
                 }
 
             case ORDER_COUNTRIES:
-                  const nombres =  state.Countries.sort((a, b) =>{
+                  const nombres =  state.filterContent.sort((a, b) =>{
                     return "From A to Z" === action.payload? a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase()):state.Countries || "From Z to A" === action.payload?b.nombre.toLowerCase().localeCompare(a.nombre.toLowerCase()):state.Countries
 
                   })
+                  
                 return{
                     ...state,
-                    Countries: nombres
+                    filterContent: nombres
                 }
                 case ORDER_POBLATION:
-                    const poblation = state.Countries.sort((a, b) =>{
+                    const poblation = state.filterContent.sort((a, b) =>{
                         return "Poblacion mayor" === action.payload? b.poblacion - a.poblacion: state.Countries || "Poblacion menor" === action.payload? a.poblacion - b.poblacion : state.Countries
                     })
                     return {
                         ...state, 
-                        Countries: poblation
+                        filterContent: poblation
                     }
-                case RESET:
-                    return {
-                        ...state,
-                        Activity:[...state.Countries ]
-                    }
+       
         default:
             return { ...state };
     }

@@ -2,7 +2,6 @@ export default function validate ({nombre, duracion, dificultad, temporada}){
     const Errors ={};
     let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
 
-
     if(!nombre.trim()){
         Errors.nombre = "*Nombre requerido";
     }else if(!regexName.test(nombre.trim())){

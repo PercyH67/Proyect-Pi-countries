@@ -9,9 +9,6 @@ const Form = ()=>{
  const { Countries } = useSelector(state => state)
 
  
- 
- 
-
  const [Form, setForm] = useState({
     nombre: "",
     dificultad: 0,
@@ -44,17 +41,17 @@ const Form = ()=>{
  }
 
  const handleSubmit = (event) =>{
-
-    event.preventDefault()
-
-    axios.post("http://localhost:3001/auth/activities", Form)
-    .catch(Errors =>{
-        if (Errors.response.status === 404) {
-            alert("La actividad con ese nombre ya existe")
-        }
-        else {alert('Actividad creada exitosamente')}
-    })
-    
+     event.preventDefault()
+    if(Form.nombre === "" || Form.duracion === "" || Form.dificultad === "" || Form.temporada === "") {
+       return alert("Complete los campos por favor")
+     }else{
+         axios.post("http://localhost:3001/auth/activities", Form)
+         .catch(error =>{
+             if (error.response.status === 404) {
+                alert("La actividad con ese nombre ya existe")
+             }
+         })   
+     } 
     
     setForm({
         nombre:'',
@@ -72,31 +69,31 @@ const Form = ()=>{
                 <h2>Crear actividad turistica</h2>
                     <div>
                         <label >Nombre: </label>
-                        <input type="text" value={Form.nombre} onChange={handleChange} name="nombre" required/>
+                        <input type="text" value={Form.nombre} onChange={handleChange} name="nombre" required />
                         <p className={styles.error}>
                             {Errors.nombre ? Errors.nombre : null}
                         </p>
                     </div>
                     <div>
                         <label >Dificultad: </label>
-                        <input type="Number" value={Form.dificultad} onChange={handleChange} name="dificultad" required/>    
+                        <input type="Number" value={Form.dificultad} onChange={handleChange} name="dificultad" required  />    
                     </div>
                     <p className={styles.error}>
                             {Errors.dificultad ? Errors.dificultad : null}
                         </p>
                     <div>
                         <label >Duracion: </label>
-                        <input type="time" value={Form.duracion} onChange={handleChange} name="duracion" required/>    
+                        <input type="time" value={Form.duracion} onChange={handleChange} name="duracion" required />    
                     </div>
                     <p className={styles.error}>
                             {Errors.duracion ? Errors.duracion : null}
                         </p>
                     
                     <section name="temporada" value={Form.temporada}>
-                        <input type="radio" name="temporada" value="Primavera" onChange={handleChange} required/> Primavera
-                        <input type="radio" name="temporada" value="Otoño" onChange={handleChange} required/> Otoño
-                        <input type="radio" name="temporada" value="Invierno" onChange={handleChange} required /> Invierno
-                        <input type="radio" name="temporada" value="Verano" onChange={handleChange} required/> Verano
+                        <input type="radio" required name="temporada" value="Primavera" onChange={handleChange} /> Primavera
+                        <input type="radio" required name="temporada" value="Otoño" onChange={handleChange} /> Otoño
+                        <input type="radio" required name="temporada" value="Invierno" onChange={handleChange}  /> Invierno
+                        <input type="radio" required name="temporada" value="Verano" onChange={handleChange} /> Verano
                     </section>
                     <p className={styles.error}>
                             {Errors.temporada ? Errors.temporada : null}

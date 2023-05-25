@@ -11,6 +11,7 @@ const Detail = ()=>{
     const dispatch = useDispatch()
     const {id} = useParams()
     const { Country } = useSelector(state => state)
+
     useEffect(()=>{
         dispatch(getCountry(id))
     },[dispatch, id])
